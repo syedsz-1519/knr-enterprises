@@ -1,6 +1,6 @@
 export default function TopBar() {
   return (
-    <div className="top-bar py-1.5">
+    <div className="top-bar py-1.5 hidden sm:block">
       <div className="container-app flex flex-wrap items-center justify-between gap-2 text-xs">
         <span className="font-mono tracking-wide">
           H.No 1-77/6, Near HP Petrol Pump, Chevella 501503
@@ -10,8 +10,8 @@ export default function TopBar() {
             GSTIN:&nbsp;36CUHPK5939D1ZG
           </span>
           <span
-            className="font-heading font-semibold uppercase tracking-widest text-[11px]"
-            style={{ color: '#73dc90' }}
+            className="font-heading font-bold uppercase tracking-widest text-[11px]"
+            style={{ color: "#73dc90" }}
           >
             ● CIVIC MUNICIPAL SUPPLIER
           </span>

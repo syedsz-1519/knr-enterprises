@@ -2,43 +2,21 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* ─── Colors ─── */
   --color-navy:           #0B1B3A;
-  --color-navy-deep:      #0a1428;
   --color-orange:         #E8710A;
   --color-orange-active:  #CF6205;
   --color-whatsapp:       #168A48;
-  --color-whatsapp-hover: #127a3f;
-  --color-gold:           #7A5410;
-  --color-amber:          #C98A1B;
   --color-canvas:         #EEF1F5;
   --color-card:           #FFFFFF;
   --color-border:         #E2E8F0;
   --color-text:           #0F172A;
   --color-muted:          #64748B;
-  --color-verified:       #168A48;
-  --color-pending:        #E8710A;
-  --color-error:          #ba1a1a;
-
-  /* ─── Typography ─── */
-  --font-heading:  'Barlow Condensed', sans-serif;
-  --font-body:     'Source Sans 3', sans-serif;
-  --font-mono:     'Courier Prime', monospace;
-
-  /* ─── Shadows ─── */
-  --shadow-card:   0 1px 3px 0 rgba(11,27,58,0.05), 0 1px 2px -1px rgba(11,27,58,0.05);
-  --shadow-raised: 0 4px 6px -1px rgba(11,27,58,0.08), 0 2px 4px -2px rgba(11,27,58,0.06);
-  --shadow-modal:  0 20px 25px -5px rgba(11,27,58,0.15), 0 8px 10px -6px rgba(11,27,58,0.1);
-
-  /* ─── Radius ─── */
-  --radius-card:   14px;
-  --radius-input:  8px;
-  --radius-btn:    8px;
-  --radius-pill:   9999px;
+  --font-heading:         'Barlow Condensed', sans-serif;
+  --font-body:            'Source Sans 3', sans-serif;
+  --font-mono:            'Courier Prime', monospace;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -48,16 +26,14 @@ body {
   font-size: 16px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-/* ─── Utility classes ─── */
-
+/* ── Typography helpers ── */
 .font-heading { font-family: 'Barlow Condensed', sans-serif; }
 .font-body    { font-family: 'Source Sans 3', sans-serif; }
 .font-mono    { font-family: 'Courier Prime', monospace; }
 
-/* Section heading with amber underline rule */
+/* ── Section heading with amber underline ── */
 .section-heading {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 700;
@@ -75,7 +51,7 @@ body {
   border-radius: 2px;
 }
 
-/* Cards */
+/* ── Cards ── */
 .card {
   background: #FFFFFF;
   border: 1px solid #E2E8F0;
@@ -83,7 +59,7 @@ body {
   box-shadow: 0 1px 3px 0 rgba(11,27,58,0.05), 0 1px 2px -1px rgba(11,27,58,0.05);
 }
 
-/* Primary CTA Button */
+/* ── Buttons ── */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -101,12 +77,11 @@ body {
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  transition: background-color 0.15s ease;
+  transition: background-color 0.15s;
+  text-decoration: none;
 }
-.btn-primary:hover  { background-color: #CF6205; }
-.btn-primary:active { background-color: #b85504; }
+.btn-primary:hover { background-color: #CF6205; }
 
-/* WhatsApp Button */
 .btn-whatsapp {
   display: inline-flex;
   align-items: center;
@@ -124,11 +99,11 @@ body {
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  transition: background-color 0.15s ease;
+  transition: background-color 0.15s;
+  text-decoration: none;
 }
 .btn-whatsapp:hover { background-color: #127a3f; }
 
-/* Outline Button */
 .btn-outline {
   display: inline-flex;
   align-items: center;
@@ -146,22 +121,12 @@ body {
   border-radius: 8px;
   border: 1.5px solid #0B1B3A;
   cursor: pointer;
-  transition: background-color 0.15s ease;
+  transition: background-color 0.15s;
+  text-decoration: none;
 }
 .btn-outline:hover { background-color: rgba(11,27,58,0.05); }
 
-/* Monospace data tokens */
-.mono { font-family: 'Courier Prime', monospace; font-weight: 700; }
-
-/* Status pills */
-.pill-verified { background: rgba(22,138,72,0.1); color: #168A48; border: 1px solid rgba(22,138,72,0.3); }
-.pill-pending  { background: rgba(232,113,10,0.1); color: #E8710A; border: 1px solid rgba(232,113,10,0.3); }
-.pill-new      { background: rgba(11,27,58,0.08); color: #0B1B3A; border: 1px solid rgba(11,27,58,0.2); }
-.pill-confirmed{ background: #0B1B3A; color: #FFFFFF; }
-.pill-dispatched{ background: #E8710A; color: #FFFFFF; }
-.pill-delivered { background: #168A48; color: #FFFFFF; }
-
-/* Input */
+/* ── Input ── */
 .input-field {
   height: 48px;
   width: 100%;
@@ -173,12 +138,20 @@ body {
   font-size: 16px;
   color: #0F172A;
   outline: none;
-  transition: border-color 0.15s ease;
+  transition: border-color 0.15s;
 }
 .input-field:focus { border: 2px solid #0B1B3A; }
-.input-field::placeholder { color: #64748B; }
+.input-field::placeholder { color: #94a3b8; }
 
-/* ─── Top info bar ─── */
+/* ── Status pills ── */
+.pill-verified  { background: rgba(22,138,72,0.1);  color: #168A48; border: 1px solid rgba(22,138,72,0.3); }
+.pill-pending   { background: rgba(232,113,10,0.1); color: #E8710A; border: 1px solid rgba(232,113,10,0.3); }
+.pill-new       { background: rgba(11,27,58,0.08);  color: #0B1B3A; border: 1px solid rgba(11,27,58,0.2); }
+.pill-confirmed { background: #0B1B3A; color: #FFFFFF; }
+.pill-dispatched{ background: #E8710A; color: #FFFFFF; }
+.pill-delivered { background: #168A48; color: #FFFFFF; }
+
+/* ── Top bar ── */
 .top-bar {
   background-color: #0B1B3A;
   color: #FFFFFF;
@@ -186,18 +159,25 @@ body {
   font-size: 12px;
 }
 
-/* Responsive container */
+/* ── Responsive container ── */
 .container-app {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
 }
+@media (min-width: 640px)  { .container-app { padding: 0 1.5rem; } }
+@media (min-width: 1024px) { .container-app { padding: 0 2rem; } }
 
-@media (min-width: 640px) {
-  .container-app { padding: 0 1.5rem; }
-}
-
-/* Hide scrollbar for horizontal pill rows */
+/* ── Hide scrollbar ── */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Hero animations ── */
+@keyframes flow  { to { background-position: 0 60px; } }
+@keyframes pulse { 50% { scale: 1.15; opacity: .7; } }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
