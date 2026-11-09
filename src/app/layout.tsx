@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import TopBar from "@/components/TopBar";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "KNR Enterprises | Leading Industrial & Commercial Solutions",
-  description: "Official website for KNR Enterprises. Discover our product catalog and business solutions.",
+  title: "KNR Enterprises | Civic & Municipal Supply Depot – Chevella",
+  description:
+    "Official procurement portal for KNR Enterprises. Sanitation, drainage, and civic supplies for gram panchayats, municipalities, and civil infrastructure contractors across Ranga Reddy District, Telangana.",
 };
 
 export default function RootLayout({
@@ -13,10 +17,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased min-h-screen">
-        {children}
+      <body className="antialiased min-h-screen flex flex-col" style={{ background: "#EEF1F5" }}>
+        <TopBar />
+        <Navbar />
+        <main className="flex-1 pb-20 md:pb-0">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
 }
-

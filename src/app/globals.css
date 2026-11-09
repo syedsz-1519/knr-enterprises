@@ -1,25 +1,199 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Source+Sans+3:wght@400;500;600&family=Courier+Prime:wght@400;700&display=swap');
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* ─── Colors ─── */
+  --color-navy:           #0B1B3A;
+  --color-navy-deep:      #0a1428;
+  --color-orange:         #E8710A;
+  --color-orange-active:  #CF6205;
+  --color-whatsapp:       #168A48;
+  --color-whatsapp-hover: #127a3f;
+  --color-gold:           #7A5410;
+  --color-amber:          #C98A1B;
+  --color-canvas:         #EEF1F5;
+  --color-card:           #FFFFFF;
+  --color-border:         #E2E8F0;
+  --color-text:           #0F172A;
+  --color-muted:          #64748B;
+  --color-verified:       #168A48;
+  --color-pending:        #E8710A;
+  --color-error:          #ba1a1a;
+
+  /* ─── Typography ─── */
+  --font-heading:  'Barlow Condensed', sans-serif;
+  --font-body:     'Source Sans 3', sans-serif;
+  --font-mono:     'Courier Prime', monospace;
+
+  /* ─── Shadows ─── */
+  --shadow-card:   0 1px 3px 0 rgba(11,27,58,0.05), 0 1px 2px -1px rgba(11,27,58,0.05);
+  --shadow-raised: 0 4px 6px -1px rgba(11,27,58,0.08), 0 2px 4px -2px rgba(11,27,58,0.06);
+  --shadow-modal:  0 20px 25px -5px rgba(11,27,58,0.15), 0 8px 10px -6px rgba(11,27,58,0.1);
+
+  /* ─── Radius ─── */
+  --radius-card:   14px;
+  --radius-input:  8px;
+  --radius-btn:    8px;
+  --radius-pill:   9999px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #EEF1F5;
+  color: #0F172A;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* ─── Utility classes ─── */
+
+.font-heading { font-family: 'Barlow Condensed', sans-serif; }
+.font-body    { font-family: 'Source Sans 3', sans-serif; }
+.font-mono    { font-family: 'Courier Prime', monospace; }
+
+/* Section heading with amber underline rule */
+.section-heading {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #0B1B3A;
+}
+.section-heading::after {
+  content: '';
+  display: block;
+  background-color: #C98A1B;
+  height: 3px;
+  width: 36px;
+  margin-top: 4px;
+  border-radius: 2px;
+}
+
+/* Cards */
+.card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  box-shadow: 0 1px 3px 0 rgba(11,27,58,0.05), 0 1px 2px -1px rgba(11,27,58,0.05);
+}
+
+/* Primary CTA Button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0 1.25rem;
+  background-color: #E8710A;
+  color: #FFFFFF;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+.btn-primary:hover  { background-color: #CF6205; }
+.btn-primary:active { background-color: #b85504; }
+
+/* WhatsApp Button */
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0 1.25rem;
+  background-color: #168A48;
+  color: #FFFFFF;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+.btn-whatsapp:hover { background-color: #127a3f; }
+
+/* Outline Button */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0 1.25rem;
+  background-color: transparent;
+  color: #0B1B3A;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 8px;
+  border: 1.5px solid #0B1B3A;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+.btn-outline:hover { background-color: rgba(11,27,58,0.05); }
+
+/* Monospace data tokens */
+.mono { font-family: 'Courier Prime', monospace; font-weight: 700; }
+
+/* Status pills */
+.pill-verified { background: rgba(22,138,72,0.1); color: #168A48; border: 1px solid rgba(22,138,72,0.3); }
+.pill-pending  { background: rgba(232,113,10,0.1); color: #E8710A; border: 1px solid rgba(232,113,10,0.3); }
+.pill-new      { background: rgba(11,27,58,0.08); color: #0B1B3A; border: 1px solid rgba(11,27,58,0.2); }
+.pill-confirmed{ background: #0B1B3A; color: #FFFFFF; }
+.pill-dispatched{ background: #E8710A; color: #FFFFFF; }
+.pill-delivered { background: #168A48; color: #FFFFFF; }
+
+/* Input */
+.input-field {
+  height: 48px;
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 0 0.75rem;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 16px;
+  color: #0F172A;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+.input-field:focus { border: 2px solid #0B1B3A; }
+.input-field::placeholder { color: #64748B; }
+
+/* ─── Top info bar ─── */
+.top-bar {
+  background-color: #0B1B3A;
+  color: #FFFFFF;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 12px;
+}
+
+/* Responsive container */
+.container-app {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-app { padding: 0 1.5rem; }
+}
