@@ -7,9 +7,10 @@ import {
   Filter,
   Plus,
   MessageSquare,
-  Phone,
   User,
   ChevronRight,
+  Download,
+  Truck,
 } from "lucide-react";
 
 /* ─── Data ─────────────────────────────────────────────────────── */
