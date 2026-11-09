@@ -197,3 +197,7 @@ body {
 @media (min-width: 640px) {
   .container-app { padding: 0 1.5rem; }
 }
+
+/* Hide scrollbar for horizontal pill rows */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
