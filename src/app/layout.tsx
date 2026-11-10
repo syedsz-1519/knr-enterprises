@@ -5,10 +5,16 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "KNR Enterprises | Civic & Municipal Supply Depot – Chevella",
+  title: "KNR Enterprises | Municipal & Civic Supply Depot – Chevella, Telangana",
   description:
-    "Official procurement portal for KNR Enterprises. Sanitation, drainage, and civic supplies for gram panchayats, municipalities and civil contractors across Ranga Reddy District, Telangana.",
-  metadataBase: new URL("https://knrenterprises.in"),
+    "Institutional sanitation chemicals, pest control, civic equipment & infrastructure supplies. GST-compliant bulk procurement for gram panchayats, municipalities & contractors across all 33 Telangana districts.",
+  metadataBase: new URL("https://knrenterprises.vercel.app"),
+  keywords: ["bleaching powder", "pest control", "sanitation", "civic supplies", "Telangana", "bulk orders"],
+  openGraph: {
+    title: "KNR Enterprises | Municipal Supply Partner",
+    description: "Institutional procurement partner for gram panchayats, municipalities & contractors",
+    type: "website",
+  },
 };
 
 export const viewport: Viewport = {
@@ -20,13 +26,14 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body
-        className="antialiased min-h-screen flex flex-col"
-        style={{ background: "#EEF1F5" }}
-      >
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
+      <body className="antialiased min-h-screen flex flex-col bg-white">
         <TopBar />
         <Navbar />
-        <main className="flex-1 pb-[60px] md:pb-0">
+        <main className="flex-1">
           {children}
         </main>
         <Footer />

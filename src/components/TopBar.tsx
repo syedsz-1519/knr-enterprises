@@ -6,9 +6,9 @@ export default function TopBar() {
           📍 <strong>Chevella Depot:</strong> H.No 1-77/6, Ranga Reddy, Telangana 501503
         </div>
         <div className="hidden md:flex items-center gap-4 text-gray-300">
-          <a href="tel:8886175855" className="hover:text-white">📞 8886175855</a>
-          <a href="https://wa.me/918886175855" target="_blank" rel="noopener noreferrer" className="hover:text-white">💬 WhatsApp</a>
-          <a href="mailto:knrenterprises679@gmail.com" className="hover:text-white">✉️ Email</a>
+          <a href="tel:8886175855" className="hover:text-white transition">📞 8886175855</a>
+          <a href="https://wa.me/918886175855" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">💬 WhatsApp</a>
+          <a href="mailto:knrenterprises679@gmail.com" className="hover:text-white transition">✉️ Email</a>
         </div>
       </div>
     </div>
