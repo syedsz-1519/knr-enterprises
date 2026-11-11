@@ -17,7 +17,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-200">
+    <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-200 shadow-sm">
       <div className="container-app">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -33,8 +33,8 @@ export default function Navbar() {
                 href={link.href}
                 className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                   pathname === link.href
-                    ? "bg-gray-900 text-white"
-                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                    ? "bg-orange-400 text-white"
+                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
                 }`}
               >
                 {link.label}
@@ -46,7 +46,7 @@ export default function Navbar() {
           <div className="flex items-center gap-2 md:gap-4">
             <a 
               href="tel:8886175855" 
-              className="hidden sm:flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-colors"
+              className="hidden sm:flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-400 to-orange-500 text-white rounded-lg font-medium hover:shadow-lg transition-all hover:-translate-y-0.5"
               style={{ minHeight: 40, fontSize: 13 }}
             >
               <Phone size={14} />
@@ -54,7 +54,7 @@ export default function Navbar() {
             </a>
             <a 
               href="tel:8886175855" 
-              className="sm:hidden flex items-center justify-center w-10 h-10 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+              className="sm:hidden flex items-center justify-center w-10 h-10 bg-gradient-to-r from-orange-400 to-orange-500 text-white rounded-lg hover:shadow-lg"
             >
               <Phone size={16} />
             </a>
@@ -79,7 +79,7 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)}
                 className={`block px-4 py-3 rounded-lg font-medium transition-colors ${
                   pathname === link.href
-                    ? "bg-gray-900 text-white"
+                    ? "bg-orange-400 text-white"
                     : "text-gray-600 hover:bg-gray-50"
                 }`}
               >
