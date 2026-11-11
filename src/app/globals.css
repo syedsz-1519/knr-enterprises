@@ -1,62 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Source+Sans+3:wght@400;500;600&family=Courier+Prime:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;700&display=swap');
 @import "tailwindcss";
 
 @theme inline {
-  --color-navy:           #0B1B3A;
-  --color-orange:         #E8710A;
-  --color-orange-active:  #CF6205;
-  --color-whatsapp:       #168A48;
-  --color-canvas:         #EEF1F5;
+  --color-primary:        #1F2937;
+  --color-accent:         #3B82F6;
+  --color-accent-light:   #60A5FA;
+  --color-bg:             #F9FAFB;
   --color-card:           #FFFFFF;
-  --color-border:         #E2E8F0;
-  --color-text:           #0F172A;
-  --color-muted:          #64748B;
-  --font-heading:         'Barlow Condensed', sans-serif;
-  --font-body:            'Source Sans 3', sans-serif;
-  --font-mono:            'Courier Prime', monospace;
+  --color-border:         #E5E7EB;
+  --color-text:           #1F2937;
+  --color-muted:          #6B7280;
+  --font-sans:            'Inter', sans-serif;
+  --font-mono:            'Geist Mono', monospace;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
 body {
-  background-color: #EEF1F5;
-  color: #0F172A;
-  font-family: 'Source Sans 3', sans-serif;
+  background-color: #F9FAFB;
+  color: #1F2937;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
 
-/* ── Typography helpers ── */
-.font-heading { font-family: 'Barlow Condensed', sans-serif; }
-.font-body    { font-family: 'Source Sans 3', sans-serif; }
-.font-mono    { font-family: 'Courier Prime', monospace; }
-
-/* ── Section heading with amber underline ── */
-.section-heading {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: #0B1B3A;
-}
-.section-heading::after {
-  content: '';
-  display: block;
-  background-color: #C98A1B;
-  height: 3px;
-  width: 36px;
-  margin-top: 4px;
-  border-radius: 2px;
-}
+/* ── Typography ── */
+.font-sans { font-family: 'Inter', sans-serif; }
+.font-mono { font-family: 'Geist Mono', monospace; }
 
 /* ── Cards ── */
 .card {
   background: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  border-radius: 14px;
-  box-shadow: 0 1px 3px 0 rgba(11,27,58,0.05), 0 1px 2px -1px rgba(11,27,58,0.05);
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
 }
 
 /* ── Buttons ── */
@@ -65,99 +44,99 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  min-height: 48px;
-  padding: 0 1.25rem;
-  background-color: #E8710A;
+  min-height: 44px;
+  padding: 0 1rem;
+  background-color: #1F2937;
   color: #FFFFFF;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 700;
-  font-size: 15px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 6px;
   border: none;
   cursor: pointer;
   transition: background-color 0.15s;
   text-decoration: none;
 }
-.btn-primary:hover { background-color: #CF6205; }
+.btn-primary:hover { background-color: #111827; }
 
-.btn-whatsapp {
+.btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  min-height: 48px;
-  padding: 0 1.25rem;
-  background-color: #168A48;
+  min-height: 44px;
+  padding: 0 1rem;
+  background-color: #3B82F6;
   color: #FFFFFF;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 700;
-  font-size: 15px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 6px;
   border: none;
   cursor: pointer;
   transition: background-color 0.15s;
   text-decoration: none;
 }
-.btn-whatsapp:hover { background-color: #127a3f; }
+.btn-secondary:hover { background-color: #2563EB; }
 
 .btn-outline {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  min-height: 48px;
-  padding: 0 1.25rem;
+  min-height: 44px;
+  padding: 0 1rem;
   background-color: transparent;
-  color: #0B1B3A;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 700;
-  font-size: 15px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  border-radius: 8px;
-  border: 1.5px solid #0B1B3A;
+  color: #1F2937;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #D1D5DB;
   cursor: pointer;
-  transition: background-color 0.15s;
+  transition: all 0.15s;
   text-decoration: none;
 }
-.btn-outline:hover { background-color: rgba(11,27,58,0.05); }
+.btn-outline:hover { 
+  background-color: #F3F4F6;
+  border-color: #9CA3AF;
+}
 
 /* ── Input ── */
 .input-field {
-  height: 48px;
+  height: 44px;
   width: 100%;
   background: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  border-radius: 8px;
+  border: 1px solid #D1D5DB;
+  border-radius: 6px;
   padding: 0 0.75rem;
-  font-family: 'Source Sans 3', sans-serif;
-  font-size: 16px;
-  color: #0F172A;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #1F2937;
   outline: none;
-  transition: border-color 0.15s;
+  transition: all 0.15s;
 }
-.input-field:focus { border: 2px solid #0B1B3A; }
-.input-field::placeholder { color: #94a3b8; }
+.input-field:focus { 
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+.input-field::placeholder { color: #9CA3AF; }
 
-/* ── Status pills ── */
-.pill-verified  { background: rgba(22,138,72,0.1);  color: #168A48; border: 1px solid rgba(22,138,72,0.3); }
-.pill-pending   { background: rgba(232,113,10,0.1); color: #E8710A; border: 1px solid rgba(232,113,10,0.3); }
-.pill-new       { background: rgba(11,27,58,0.08);  color: #0B1B3A; border: 1px solid rgba(11,27,58,0.2); }
-.pill-confirmed { background: #0B1B3A; color: #FFFFFF; }
-.pill-dispatched{ background: #E8710A; color: #FFFFFF; }
-.pill-delivered { background: #168A48; color: #FFFFFF; }
-
-/* ── Top bar ── */
-.top-bar {
-  background-color: #0B1B3A;
-  color: #FFFFFF;
-  font-family: 'Source Sans 3', sans-serif;
+/* ── Badges ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  background: #F3F4F6;
+  color: #4B5563;
   font-size: 12px;
+  font-weight: 600;
+  border-radius: 4px;
 }
+.badge-success { background: #ECFDF5; color: #047857; }
+.badge-warning { background: #FFFBEB; color: #D97706; }
+.badge-danger { background: #FEF2F2; color: #DC2626; }
 
 /* ── Responsive container ── */
 .container-app {
@@ -172,12 +151,3 @@ body {
 /* ── Hide scrollbar ── */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-/* ── Hero animations ── */
-@keyframes flow  { to { background-position: 0 60px; } }
-@keyframes pulse { 50% { scale: 1.15; opacity: .7; } }
-@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-
-@media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
-}
