@@ -33,6 +33,7 @@ export default function Footer() {
               {[
                 { name: "Home", href: "/" },
                 { name: "Products", href: "/catalogue" },
+                { name: "Bulk Orders", href: "/bulk-orders" },
                 { name: "About", href: "/about" },
                 { name: "Contact", href: "/contact" },
               ].map((link) => (
@@ -104,9 +105,9 @@ export default function Footer() {
             <span className="ml-2 text-orange-400 font-semibold">EST:</span> 2014
           </div>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-orange-400 transition">Privacy Policy</a>
-            <a href="#" className="hover:text-orange-400 transition">Terms & Conditions</a>
-            <a href="#" className="hover:text-orange-400 transition">Refund Policy</a>
+            <a href="/privacy" className="hover:text-orange-400 transition">Privacy Policy</a>
+            <a href="/terms" className="hover:text-orange-400 transition">Terms & Conditions</a>
+            <a href="/faq" className="hover:text-orange-400 transition">FAQ</a>
           </div>
         </div>
       </div>

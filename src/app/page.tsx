@@ -99,16 +99,14 @@ export default function HomePage() {
               { 
                 title: "Bleaching Powder", 
                 desc: "ISI Grade 1, 33%+ chlorine potency",
-                emoji: "🧴",
-                icon: "🧪",
+                image: "/products/bleaching-powder.jpg",
                 color: "from-orange-100 to-orange-50",
                 price: "₹450/bag"
               },
               { 
                 title: "Pest Control", 
                 desc: "Malathion DP, thermal foggers",
-                emoji: "🧪",
-                icon: "🪲",
+                image: "/products/pest-control.jpg",
                 color: "from-red-100 to-red-50",
                 price: "₹1200+",
                 popular: true
@@ -116,32 +114,28 @@ export default function HomePage() {
               { 
                 title: "Waste Management", 
                 desc: "HDPE dustbins (120L/240L)",
-                emoji: "🗑️",
-                icon: "♻️",
+                image: "/products/dust-bins.jpg",
                 color: "from-green-100 to-green-50",
                 price: "₹3200+",
               },
               { 
                 title: "Street Lighting", 
                 desc: "IP66 LED fixtures, surge protected",
-                emoji: "💡",
-                icon: "⚡",
+                image: "/products/street-light.jpg",
                 color: "from-yellow-100 to-yellow-50",
                 price: "₹2800+",
               },
               { 
                 title: "Sanitation Tools", 
                 desc: "Safety jackets, gloves, sprayers",
-                emoji: "🧹",
-                icon: "🛠️",
+                image: "/products/sanitation-tools.jpg",
                 color: "from-blue-100 to-blue-50",
                 price: "Bulk Pricing",
               },
               { 
                 title: "Landscaping", 
                 desc: "UV-resistant artificial grass",
-                emoji: "🟩",
-                icon: "🌱",
+                image: "/products/landscaping.jpg",
                 color: "from-teal-100 to-teal-50",
                 price: "₹40+/sqft",
               },
@@ -157,18 +151,26 @@ export default function HomePage() {
                   </div>
                 )}
                 
-                <div className={`bg-gradient-to-br ${product.color} h-32 flex items-center justify-center`}>
-                  <span className="text-6xl">{product.emoji}</span>
+                <div className={`bg-gradient-to-br ${product.color} h-48 flex items-center justify-center overflow-hidden relative group`}>
+                  {product.image ? (
+                    <img 
+                      src={product.image} 
+                      alt={product.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  ) : (
+                    <span className="text-6xl">{product.emoji}</span>
+                  )}
                 </div>
                 
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{product.title}</h3>
                   <p className="text-sm text-gray-600 mb-4">{product.desc}</p>
                   
-                  <div className="flex items-center justify-between">
-                    <span className="font-bold text-orange-600">{product.price}</span>
-                    <button className="bg-orange-400 text-white p-2 rounded-lg group-hover:bg-orange-500 transition">
-                      <ChevronRight size={18} />
+                  <div className="flex items-center justify-between pt-4 border-t-2 border-gray-100">
+                    <span className="text-2xl md:text-3xl font-black text-orange-600">{product.price}</span>
+                    <button className="bg-orange-400 text-white p-2 rounded-lg group-hover:bg-orange-500 transition hover:scale-110 transform">
+                      <ChevronRight size={20} />
                     </button>
                   </div>
                 </div>
