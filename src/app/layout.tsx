@@ -3,6 +3,7 @@ import "./globals.css";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WhatsAppBubble from "@/components/WhatsAppBubble";
 
 export const metadata: Metadata = {
   title: "KNR Enterprises | Municipal & Civic Supply Depot – Chevella, Telangana",
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className="antialiased min-h-screen flex flex-col bg-white">
+        <WhatsAppBubble />
         <TopBar />
         <Navbar />
         <main className="flex-1">

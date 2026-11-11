@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { Phone, ArrowRight, ChevronRight, Star, Check, Zap, Shield, Truck, Award } from "lucide-react";
-import Logo from "@/components/Logo";
+import WhatsAppBubble from "@/components/WhatsAppBubble";
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
+      <WhatsAppBubble />
       {/* ─── HERO SECTION WITH GRADIENT ─── */}
       <section className="relative overflow-hidden">
         {/* Background with gradient overlay */}
