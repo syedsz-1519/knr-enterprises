@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MapPin, Mail, Phone } from "lucide-react";
+import Logo from "./Logo";
 
 export default function Footer() {
   return (
@@ -8,9 +9,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <div className="font-bold text-lg mb-2">KNR Enterprises</div>
+            <div className="mb-4">
+              <Logo size="sm" variant="dark" />
+            </div>
             <p className="text-sm text-gray-400 mb-4">
-              Institutional supplies for municipal government, gram panchayats & civil contractors.
+              Institutional supplies for municipal government, gram panchayats & civil contractors across Telangana.
             </p>
             <div className="text-xs text-gray-500 font-mono">GSTIN: 36CUHPK5939D1ZG</div>
           </div>
@@ -22,7 +25,7 @@ export default function Footer() {
               <Link href="/" className="hover:text-white transition">Home</Link>
               <Link href="/catalogue" className="block hover:text-white transition">Products</Link>
               <Link href="/contact" className="block hover:text-white transition">Contact</Link>
-              <Link href="/admin" className="block hover:text-white transition">Admin</Link>
+              <Link href="/about" className="block hover:text-white transition">About</Link>
             </div>
           </div>
 

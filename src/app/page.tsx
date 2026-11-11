@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ChevronRight, Phone, MapPin, CheckCircle, ArrowRight } from "lucide-react";
+import { Phone, ArrowRight, ChevronRight } from "lucide-react";
+import Logo from "@/components/Logo";
 
 export default function HomePage() {
   return (
@@ -8,6 +9,11 @@ export default function HomePage() {
       <section className="relative bg-gradient-to-b from-gray-50 to-white border-b border-gray-200">
         <div className="container-app py-20 md:py-32">
           <div className="max-w-2xl">
+            {/* Logo */}
+            <div className="mb-8">
+              <Logo size="lg" variant="light" />
+            </div>
+
             <div className="mb-6 inline-block">
               <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold">
                 <span className="w-2 h-2 bg-blue-600 rounded-full"></span>

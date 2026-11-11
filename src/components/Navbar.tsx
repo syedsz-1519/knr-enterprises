@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Phone, Menu, X, Search } from "lucide-react";
+import { Phone, Menu, X } from "lucide-react";
 import { useState } from "react";
+import Logo from "./Logo";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -20,11 +21,8 @@ export default function Navbar() {
       <div className="container-app">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="font-bold text-lg text-gray-900 flex items-center gap-2">
-            <div className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold">
-              KNR
-            </div>
-            <span className="hidden sm:inline">KNR Enterprises</span>
+          <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
+            <Logo size="md" variant="light" />
           </Link>
 
           {/* Desktop Nav */}
@@ -46,11 +44,18 @@ export default function Navbar() {
 
           {/* Right Section */}
           <div className="flex items-center gap-2 md:gap-4">
-            <a href="tel:8886175855" className="hidden sm:btn-primary" style={{ minHeight: 40, padding: "0 12px", fontSize: 13 }}>
+            <a 
+              href="tel:8886175855" 
+              className="hidden sm:flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-colors"
+              style={{ minHeight: 40, fontSize: 13 }}
+            >
               <Phone size={14} />
               <span className="hidden md:inline">8886175855</span>
             </a>
-            <a href="tel:8886175855" className="sm:hidden flex items-center justify-center w-10 h-10 bg-blue-600 text-white rounded-lg">
+            <a 
+              href="tel:8886175855" 
+              className="sm:hidden flex items-center justify-center w-10 h-10 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            >
               <Phone size={16} />
             </a>
 

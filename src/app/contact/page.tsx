@@ -1,334 +1,182 @@
 "use client";
 
 import { useState } from "react";
-import {
-  Phone,
-  MessageSquare,
-  Mail,
-  MapPin,
-  Copy,
-  CheckCircle,
-  Clock,
-  User,
-  Home,
-} from "lucide-react";
-
-function CopyButton({ text }: { text: string }) {
-  const [copied, setCopied] = useState(false);
-
-  function handleCopy() {
-    navigator.clipboard.writeText(text).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  }
-
-  return (
-    <button
-      onClick={handleCopy}
-      className="btn-outline text-sm flex-1"
-      style={{ minHeight: 44, fontSize: 13 }}
-      aria-label="Copy number"
-    >
-      {copied ? <CheckCircle size={14} style={{ color: "#168A48" }} /> : <Copy size={14} />}
-      {copied ? "Copied!" : "Copy"}
-    </button>
-  );
-}
-
-interface ContactCardProps {
-  role: string;
-  name: string;
-  phone: string;
-  icon: React.ReactNode;
-  bg: string;
-}
-
-function ContactCard({ role, name, phone, icon, bg }: ContactCardProps) {
-  const waLink = `https://wa.me/91${phone.replace(/\s+/g, "")}?text=Enquiry%20-%20KNR%20Enterprises`;
-
-  return (
-    <div className="card p-4">
-      <div className="flex items-start justify-between mb-3">
-        <div>
-          <div
-            className="font-heading font-semibold uppercase text-xs tracking-widest mb-0.5"
-            style={{ color: "#E8710A" }}
-          >
-            {role}
-          </div>
-          <div
-            className="font-heading font-bold text-xl uppercase tracking-wide"
-            style={{ color: "#0B1B3A" }}
-          >
-            {name}
-          </div>
-        </div>
-        <div
-          className="w-12 h-12 rounded-full flex items-center justify-center text-xl flex-shrink-0"
-          style={{ background: bg }}
-        >
-          {icon}
-        </div>
-      </div>
-
-      {/* Phone number row */}
-      <div
-        className="flex items-center gap-2 p-2.5 rounded-lg mb-3"
-        style={{ background: "#EEF1F5" }}
-      >
-        <Phone size={14} style={{ color: "#0B1B3A" }} />
-        <span className="font-mono text-sm" style={{ color: "#0F172A" }}>
-          +91 {phone}
-        </span>
-      </div>
-
-      {/* Actions */}
-      <div className="flex gap-2">
-        <a
-          href={`tel:${phone.replace(/\s+/g, "")}`}
-          className="btn-primary flex-1 text-sm"
-          style={{ minHeight: 44, fontSize: 13 }}
-        >
-          <Phone size={14} />
-          Call
-        </a>
-        <CopyButton text={phone.replace(/\s+/g, "")} />
-        <a
-          href={waLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-whatsapp flex-1 text-sm"
-          style={{ minHeight: 44, fontSize: 13 }}
-        >
-          <MessageSquare size={14} />
-          WhatsApp
-        </a>
-      </div>
-    </div>
-  );
-}
+import { Phone, Mail, MapPin, Send } from "lucide-react";
 
 export default function ContactPage() {
-  const [emailCopied, setEmailCopied] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
 
-  function handleCopyEmail() {
-    navigator.clipboard.writeText("knrenterprises679@gmail.com").then(() => {
-      setEmailCopied(true);
-      setTimeout(() => setEmailCopied(false), 2000);
-    });
-  }
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log(formData);
+    alert("Message sent! We'll contact you soon.");
+    setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+  };
 
   return (
-    <div className="container-app py-4">
-      {/* Page header */}
-      <div className="mb-5">
-        <div
-          className="inline-flex items-center gap-1.5 font-heading font-semibold uppercase text-xs tracking-widest mb-2"
-          style={{ color: "#E8710A" }}
-        >
-          <span
-            className="block w-7 h-0.5 rounded-full"
-            style={{ background: "#C98A1B" }}
-          />
-          Direct Procurement Channels
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <div className="bg-gray-50 border-b border-gray-200 py-8">
+        <div className="container-app">
+          <h1 className="text-4xl font-bold text-gray-900 mb-2">Contact Us</h1>
+          <p className="text-gray-600">Get in touch for bulk orders and procurement queries</p>
         </div>
-        <h1 className="section-heading text-3xl">Contact</h1>
-        <p className="font-body text-sm mt-2" style={{ color: "#64748B" }}>
-          Call, WhatsApp or email us for rates, stock and delivery in Ranga Reddy and nearby districts.
-        </p>
       </div>
 
-      {/* Two-column layout on md+ */}
-      <div className="grid md:grid-cols-2 gap-4">
-        {/* Left column */}
-        <div className="space-y-4">
-          {/* Managing Proprietor */}
-          <ContactCard
-            role="Managing Proprietor"
-            name="K. Narendar Reddy"
-            phone="88861 75855"
-            icon={<User size={20} style={{ color: "#0B1B3A" }} />}
-            bg="#EEF1F5"
-          />
-
-          {/* Depot Operations */}
-          <ContactCard
-            role="Depot Operations"
-            name="G. Siva"
-            phone="96401 95798"
-            icon={<Home size={20} style={{ color: "#0B1B3A" }} />}
-            bg="#EEF1F5"
-          />
-
-          {/* Email */}
-          <div className="card p-4">
-            <div className="flex items-start justify-between mb-3">
-              <div>
-                <div
-                  className="font-heading font-semibold uppercase text-xs tracking-widest mb-0.5"
-                  style={{ color: "#E8710A" }}
-                >
-                  Electronic Mail
+      <div className="container-app py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          {/* Contact Info */}
+          <div className="lg:col-span-1 space-y-8">
+            {/* Phone */}
+            <div>
+              <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                <Phone size={20} className="text-blue-600" /> Phone
+              </h3>
+              <div className="space-y-2 text-gray-600">
+                <div>
+                  <div className="font-semibold text-gray-900">K. Narendar Reddy</div>
+                  <a href="tel:8886175855" className="text-blue-600 hover:underline">
+                    +91 8886175855
+                  </a>
                 </div>
-                <div
-                  className="font-heading font-bold text-xl uppercase tracking-wide"
-                  style={{ color: "#0B1B3A" }}
-                >
-                  Official Inquiry Desk
+                <div>
+                  <div className="font-semibold text-gray-900">G. Siva (Logistics)</div>
+                  <a href="tel:9640195798" className="text-blue-600 hover:underline">
+                    +91 9640195798
+                  </a>
                 </div>
-              </div>
-              <div
-                className="w-12 h-12 rounded-full flex items-center justify-center"
-                style={{ background: "#EEF1F5" }}
-              >
-                <Mail size={20} style={{ color: "#0B1B3A" }} />
               </div>
             </div>
 
-            <div
-              className="flex items-center gap-2 p-2.5 rounded-lg mb-3"
-              style={{ background: "#EEF1F5" }}
-            >
-              <span className="text-sm" style={{ color: "#64748B" }}>@</span>
-              <span className="font-mono text-sm" style={{ color: "#E8710A" }}>
+            {/* Email */}
+            <div>
+              <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                <Mail size={20} className="text-blue-600" /> Email
+              </h3>
+              <a href="mailto:knrenterprises679@gmail.com" className="text-blue-600 hover:underline">
                 knrenterprises679@gmail.com
-              </span>
+              </a>
             </div>
 
-            <div className="flex gap-2">
-              <button
-                onClick={handleCopyEmail}
-                className="btn-outline flex-1 text-sm"
-                style={{ minHeight: 44, fontSize: 13 }}
-              >
-                {emailCopied ? (
-                  <CheckCircle size={14} style={{ color: "#168A48" }} />
-                ) : (
-                  <Copy size={14} />
-                )}
-                {emailCopied ? "Copied!" : "Copy Address"}
-              </button>
-              <a
-                href="mailto:knrenterprises679@gmail.com"
-                className="btn-primary flex-1 text-sm"
-                style={{ minHeight: 44, fontSize: 13 }}
-              >
-                <Mail size={14} />
-                Send Mail
-              </a>
+            {/* Location */}
+            <div>
+              <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                <MapPin size={20} className="text-blue-600" /> Address
+              </h3>
+              <div className="text-gray-600 text-sm leading-relaxed">
+                <p>H.No 1-77/6, Near HP Petrol Pump</p>
+                <p>Chevella Mandal, Ranga Reddy District</p>
+                <p>Telangana 501503</p>
+              </div>
+            </div>
+
+            {/* Hours */}
+            <div className="bg-gray-50 p-4 rounded-lg">
+              <h4 className="font-semibold text-gray-900 mb-2">Depot Hours</h4>
+              <p className="text-sm text-gray-600">Mon–Sat: 8:30 AM to 7:30 PM</p>
+              <p className="text-sm text-gray-600">Sunday: Closed</p>
+              <p className="text-sm text-gray-600 mt-2">Response: 15 minutes (WhatsApp)</p>
             </div>
           </div>
-        </div>
 
-        {/* Right column */}
-        <div className="space-y-4">
-          {/* Depot map + info */}
-          <div className="card overflow-hidden">
-            <div className="flex items-center justify-between p-4 pb-3">
-              <div>
-                <div
-                  className="font-heading font-semibold uppercase text-xs tracking-widest mb-0.5"
-                  style={{ color: "#E8710A" }}
-                >
-                  Main Dispatch Anchor
-                </div>
-                <div
-                  className="font-heading font-bold text-xl uppercase tracking-wide"
-                  style={{ color: "#0B1B3A" }}
-                >
-                  Chevella Depot Hub
-                </div>
-              </div>
-              <MapPin size={20} style={{ color: "#E8710A" }} />
-            </div>
-
-            {/* Static map embed */}
-            <div
-              className="mx-4 rounded-xl overflow-hidden border"
-              style={{ borderColor: "#E2E8F0", height: 180 }}
-            >
-              <iframe
-                width="100%"
-                height="180"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU3bvQ&q=Chevella,Telangana"
-                title="Chevella Depot Location"
-                style={{ border: 0 }}
-              />
-            </div>
-
-            {/* Address block */}
-            <div className="p-4 space-y-3">
-              <div className="flex items-start gap-2 font-body text-sm" style={{ color: "#0F172A" }}>
-                <MapPin size={14} style={{ color: "#0B1B3A", flexShrink: 0, marginTop: 2 }} />
+          {/* Form */}
+          <div className="lg:col-span-2">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <div className="font-semibold">H.No 1-77/6, Near HP Petrol Pump</div>
-                  <div style={{ color: "#64748B" }}>
-                    Chevella Mandal, Ranga Reddy District, Telangana – 501503
-                  </div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">Name</label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="input-field"
+                    placeholder="Your name"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">Email</label>
+                  <input
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="input-field"
+                    placeholder="your@email.com"
+                  />
                 </div>
               </div>
 
-              {/* GSTIN */}
-              <div
-                className="p-2.5 rounded-lg"
-                style={{ background: "#EEF1F5" }}
-              >
-                <div className="flex items-center justify-between">
-                  <span className="font-heading font-semibold uppercase text-xs tracking-widest" style={{ color: "#64748B" }}>
-                    Statutory Registration
-                  </span>
-                  <div className="flex items-center gap-1 font-body text-xs" style={{ color: "#168A48" }}>
-                    <CheckCircle size={12} />
-                    Verified
-                  </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">Phone</label>
+                  <input
+                    type="tel"
+                    required
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="input-field"
+                    placeholder="+91 98765 43210"
+                  />
                 </div>
-                <div className="font-mono text-sm mt-1" style={{ color: "#0F172A" }}>
-                  GSTIN: 36CUHPK5939D1ZG
-                </div>
-                <div className="font-body text-xs mt-0.5" style={{ color: "#64748B" }}>
-                  Verified Municipal Taxpayer ID
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">Subject</label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.subject}
+                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                    className="input-field"
+                    placeholder="Bulk order inquiry"
+                  />
                 </div>
               </div>
 
-              {/* Operating hours */}
               <div>
-                <div className="flex items-center justify-between mb-1.5">
-                  <div className="flex items-center gap-1.5 font-heading font-semibold uppercase text-xs tracking-widest" style={{ color: "#64748B" }}>
-                    <Clock size={12} />
-                    Operating Hours
-                  </div>
-                  <span
-                    className="font-heading font-bold text-xs uppercase tracking-wider px-2 py-0.5 rounded-full"
-                    style={{ background: "rgba(22,138,72,0.1)", color: "#168A48" }}
-                  >
-                    ● Open Now
-                  </span>
-                </div>
-                <div className="space-y-1 font-body text-sm">
-                  <div className="flex justify-between">
-                    <span style={{ color: "#64748B" }}>Monday – Saturday</span>
-                    <span className="font-mono text-xs" style={{ color: "#0F172A" }}>08:00 AM – 08:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span style={{ color: "#64748B" }}>Sunday (Emergency Indents)</span>
-                    <span className="font-mono text-xs" style={{ color: "#0F172A" }}>09:00 AM – 02:00 PM</span>
-                  </div>
-                </div>
+                <label className="block text-sm font-semibold text-gray-900 mb-2">Message</label>
+                <textarea
+                  required
+                  rows={6}
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Tell us about your requirements..."
+                />
               </div>
 
-              {/* Open in maps */}
-              <a
-                href="https://maps.google.com/?q=H.No+1-77/6,+Near+HP+Petrol+Pump,+Chevella,+Telangana+501503"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary w-full"
-              >
-                <MapPin size={16} />
-                Open in Maps
-              </a>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button type="submit" className="btn-primary flex items-center justify-center gap-2">
+                  <Send size={16} /> Send Message
+                </button>
+                <a href="https://wa.me/918886175855" target="_blank" className="btn-secondary flex items-center justify-center gap-2 text-center">
+                  💬 WhatsApp Us
+                </a>
+              </div>
+            </form>
+
+            {/* FAQ Section */}
+            <div className="mt-12 pt-8 border-t border-gray-200">
+              <h3 className="font-bold text-lg text-gray-900 mb-4">Quick Answers</h3>
+              <div className="space-y-4">
+                <div className="card p-4">
+                  <p className="font-semibold text-gray-900 mb-1">How long for quotation?</p>
+                  <p className="text-sm text-gray-600">Within 15 minutes via WhatsApp or email</p>
+                </div>
+                <div className="card p-4">
+                  <p className="font-semibold text-gray-900 mb-1">What payment methods?</p>
+                  <p className="text-sm text-gray-600">NEFT, RTGS, Treasury Challan for institutional orders</p>
+                </div>
+                <div className="card p-4">
+                  <p className="font-semibold text-gray-900 mb-1">Delivery timeline?</p>
+                  <p className="text-sm text-gray-600">Same-day for Chevella, 24-48 hours for other districts</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
